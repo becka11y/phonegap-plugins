@@ -10,10 +10,10 @@
 
 #import "ChildBrowserCommand.h"
 
-#ifdef PHONEGAP_FRAMEWORK
-	#import <PhoneGap/PhoneGapViewController.h>
+#ifdef CORDOVA_FRAMEWORK
+	#import <Cordova/CDVViewController.h>
 #else
-	#import "PhoneGapViewController.h"
+	#import "CDVViewController.h"
 #endif
 
 
@@ -34,7 +34,7 @@
 	NSString* strOrientations = [ options objectForKey:@"supportedOrientations"];
 	NSArray* supportedOrientations = [strOrientations componentsSeparatedByString:@","];
 */
-    PhoneGapViewController* cont = (PhoneGapViewController*)[ super appViewController ];
+    CDVViewController* cont = (CDVViewController*)[ super viewController ];
     childBrowser.supportedOrientations = cont.supportedOrientations;
     
     if ([cont respondsToSelector:@selector(presentViewController)]) {

@@ -43,13 +43,13 @@ ChildBrowser._onJSCallback = function(js,loc)
 // Show a webpage, will result in a callback to onLocationChange
 ChildBrowser.prototype.showWebPage = function(loc)
 {
-  PhoneGap.exec("ChildBrowserCommand.showWebPage", loc);
+  Cordova.exec("ChildBrowserCommand.showWebPage", loc);
 };
 
 // close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-  PhoneGap.exec("ChildBrowserCommand.close");
+  Cordova.exec("ChildBrowserCommand.close");
 };
 
 // Not Implemented

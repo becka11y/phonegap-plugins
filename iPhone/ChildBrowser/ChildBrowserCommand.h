@@ -1,22 +1,23 @@
 //
-//  PhoneGap ! ChildBrowserCommand
+//  Cordova ! ChildBrowserCommand
 //
 //
 //  Created by Jesse MacFadyen on 10-05-29.
 //  Copyright 2010 Nitobi. All rights reserved.
+//  Updated March, 2012
 //
 
 #import <Foundation/Foundation.h>
-#ifdef PHONEGAP_FRAMEWORK
-	#import <PhoneGap/PGPlugin.h>
+#ifdef CORDOVA_FRAMEWORK
+	#import <Cordova/CDVPlugin.h>
 #else
-	#import "PGPlugin.h"
+	#import "CDVPlugin.h"
 #endif
 #import "ChildBrowserViewController.h"
 
 
 
-@interface ChildBrowserCommand : PGPlugin <ChildBrowserDelegate>  {
+@interface ChildBrowserCommand : CDVPlugin <ChildBrowserDelegate>  {
 
 	ChildBrowserViewController* childBrowser;
 }
