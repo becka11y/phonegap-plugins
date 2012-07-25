@@ -3,21 +3,18 @@
 //  Copyright 2012, Randy McMillan
 
 
-#ifdef CORDOVA_FRAMEWORK
-#import <Cordova/CDVPlugin.h>
-#else
+
+
 #import "Cordova/CDVPlugin.h"
-#endif
 #import "ChildBrowserViewController.h"
 
 
-#ifdef CORDOVA_FRAMEWORK
-    @interface ChildBrowserCommand : CDVPlugin <ChildBrowserDelegate>  {
-#endif
+
+@interface ChildBrowserCommand : CDVPlugin <ChildBrowserDelegate>  {
     ChildBrowserViewController* childBrowser;
 }
 
-@property (nonatomic, retain) ChildBrowserViewController *childBrowser;
+@property (nonatomic, strong) ChildBrowserViewController *childBrowser;
 
 
 - (void) showWebPage:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;

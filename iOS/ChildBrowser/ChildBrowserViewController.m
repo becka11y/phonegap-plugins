@@ -80,22 +80,6 @@
 }
 
 
-- (void)dealloc {
-
-    webView.delegate = nil;
-
-    [webView release];
-    [closeBtn release];
-    [refreshBtn release];
-    [addressLabel release];
-    [backBtn release];
-    [fwdBtn release];
-    [safariBtn release];
-    [spinner release];
-    [ supportedOrientations release];
-    [super dealloc];
-}
-
 -(void)closeBrowser
 {
 
@@ -113,9 +97,11 @@
 -(IBAction) onDoneButtonPress:(id)sender
 {
     [ self closeBrowser];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@""]];
-    [webView loadRequest:request];
+//      Not sure why this was being done as it adds an empty page into the history?  Seems to work
+//      fine with this removed.  BG July, 2012 ARC conversion
+//      NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]];
+//      NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@""]];
+//      [webView loadRequest:request];
 }
 
 
@@ -168,7 +154,7 @@
         [url hasSuffix:@".bmp" ]  || 
         [url hasSuffix:@".gif" ]  )
     {
-        [ imageURL release ];
+        //[ imageURL release ];
         imageURL = [url copy];
         isImage = YES;
         NSString* htmlText = @"<html><body style='background-color:#333;margin:0px;padding:0px;'><img style='min-height:200px;margin:0px;padding:0px;width:100%;height:auto;' alt='' src='IMGSRC'/></body></html>";
