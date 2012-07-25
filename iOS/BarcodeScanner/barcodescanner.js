@@ -7,7 +7,9 @@
  */
 
 ;(function(){
-
+   
+   var cordovaRef = window.Cordova || window.cordova; // old to new fallbacks
+   
 //-------------------------------------------------------------------
 var BarcodeScanner = function() {
 }
@@ -44,7 +46,7 @@ BarcodeScanner.prototype.scan = function(success, fail, options) {
     if ( null == options ) 
       options = []
 
-    return Cordova.exec(successWrapper, fail, "org.apache.cordova.barcodeScanner", "scan", options)
+    return cordovaRef.exec(successWrapper, fail, "org.apache.cordova.barcodeScanner", "scan", options)
 }
 
 //-------------------------------------------------------------------
@@ -61,11 +63,11 @@ BarcodeScanner.prototype.encode = function(type, data, success, fail, options) {
         return
     }
 
-    return Cordova.exec(success, fail, "org.apache.cordova.barcodeScanner", "encode", [{type: type, data: data, options: options}])
+    return cordovaRef.exec(success, fail, "org.apache.cordova.barcodeScanner", "encode", [{type: type, data: data, options: options}])
 }
 
 //-------------------------------------------------------------------
-Cordova.addConstructor(function() {
+cordovaRef.addConstructor(function() {
     if (!window.plugins) window.plugins = {}
 
     if (!window.plugins.barcodeScanner) {

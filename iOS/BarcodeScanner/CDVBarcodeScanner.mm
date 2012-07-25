@@ -15,12 +15,8 @@
 // use the all-in-one version of zxing that we built
 //------------------------------------------------------------------------------
 #import "zxing-all-in-one.h"
+#import <Cordova/CDVPlugin.h>
 
-#ifdef CORDOVA_FRAMEWORK
-#import <CORDOVA/CDVPlugin.h>
-#else
-#import "CDVPlugin.h"
-#endif
 
 //------------------------------------------------------------------------------
 // Adds a shutter button to the UI, and changes the scan from continuous to

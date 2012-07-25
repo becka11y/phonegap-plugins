@@ -33,12 +33,12 @@ function scannerFake(success, failure) {
 
 //------------------------------------------------------------------------------
 function onLoad() {
-    if (typeof Cordova == "object") {
-        console.log("Cordova found!")
+    if (typeof cordova == "object" || typeof Cordova == "object") {
+        console.log("cordova found!")
         document.addEventListener("deviceready",onDeviceReady,false);
     }
     else {
-        console.log("Cordova not found!")
+        console.log("cordova not found!")
         if (!window.plugins)                window.plugins = {}
         if (!window.plugins.barcodeScanner) window.plugins.barcodeScanner = {
             scan: scannerFake
